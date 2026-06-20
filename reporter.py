@@ -27,6 +27,9 @@ class Reporter:
             "total_lines": file_score.total_lines,
             "total_penalty": file_score.total_penalty,
             "has_violations": file_score.has_violations,
+            "rule_source": file_score.rule_source,
+            "rule_pattern": file_score.rule_pattern,
+            "rule_description": file_score.rule_description,
             "function_details": file_score.function_details,
             "deductions": [
                 {
@@ -38,6 +41,9 @@ class Reporter:
                     "start_line": d.start_line,
                     "end_line": d.end_line,
                     "is_over": d.is_over,
+                    "rule_source": d.rule_source,
+                    "rule_pattern": d.rule_pattern,
+                    "rule_description": d.rule_description,
                 }
                 for d in file_score.deductions
             ],
@@ -101,6 +107,22 @@ class Reporter:
             }
         return thresholds
 
+    def _get_effective_thresholds(self, project_score: ProjectScore) -> Dict[str, Dict[str, int]]:
+        result = {}
+        for f in project_score.files:
+            key = f.path
+            lang = f.language
+            default_complexity = self.config.get_threshold(lang, "complexity")
+            default_lines = self.config.get_threshold(lang, "function_lines")
+            default_coupling = self.config.get_threshold(lang, "coupling")
+            eff = self.config.get_effective_config(Path(key), lang)
+            result[key] = {
+                "complexity": eff["threshold"].get("complexity", default_complexity),
+                "function_lines": eff["threshold"].get("function_lines", default_lines),
+                "coupling": eff["threshold"].get("coupling", default_coupling),
+            }
+        return result
+
     def generate_html(
         self, project_score: ProjectScore, threshold: int, output_path: Path
     ) -> None:
@@ -111,6 +133,7 @@ class Reporter:
         )
         charts_data = self._build_charts_data(project_score)
         thresholds = self._get_thresholds()
+        effective_thresholds = self._get_effective_thresholds(project_score)
 
         html = template.render(
             generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -126,6 +149,7 @@ class Reporter:
             all_files_sorted=all_files_sorted,
             charts_data=charts_data,
             thresholds=thresholds,
+            effective_thresholds=effective_thresholds,
         )
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(html)

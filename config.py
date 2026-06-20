@@ -38,11 +38,14 @@ class Config:
     def is_ignored(self, file_path: Path) -> bool:
         rel_path = file_path.relative_to(self.project_root) if file_path.is_absolute() else file_path
         rel_str = str(rel_path).replace("\\", "/")
+        filename = Path(rel_str).name
         for pattern in self._ignore_patterns:
-            if fnmatch.fnmatch(rel_str, pattern) or fnmatch.fnmatch(rel_str, f"{pattern.rstrip('/')}/**"):
-                return True
-            if fnmatch.fnmatch(Path(rel_str).name, pattern):
-                return True
+            if "/" in pattern:
+                if fnmatch.fnmatch(rel_str, pattern) or fnmatch.fnmatch(rel_str, f"{pattern.rstrip('/')}/**"):
+                    return True
+            else:
+                if fnmatch.fnmatch(filename, pattern):
+                    return True
         return False
 
     def get_languages(self) -> Dict[str, Dict[str, Any]]:
@@ -89,3 +92,70 @@ class Config:
 
     def get_scan_depth(self) -> int:
         return self._data.get("scan_depth", 10)
+
+    def get_overrides(self) -> List[Dict[str, Any]]:
+        return self._data.get("overrides", []) or []
+
+    def _match_pattern(self, rel_str: str, pattern: str) -> bool:
+        rel_norm = rel_str.replace("\\", "/")
+        pat_norm = pattern.replace("\\", "/").lstrip("/")
+        if fnmatch.fnmatch(rel_norm, pat_norm):
+            return True
+        if fnmatch.fnmatch(rel_norm, f"{pat_norm.rstrip('/')}/**"):
+            return True
+        base = rel_norm.split("/", 1)[0] if "/" in rel_norm else rel_norm
+        return False
+
+    def get_effective_config(
+        self, file_path: Path, language: str
+    ) -> Dict[str, Any]:
+        if file_path.is_absolute():
+            try:
+                rel_path = file_path.relative_to(self.project_root)
+            except ValueError:
+                rel_path = Path(file_path.name)
+        else:
+            rel_path = file_path
+        rel_str = str(rel_path).replace("\\", "/")
+
+        lang_cfg = self.get_language_config(language) or {}
+        result = {
+            "source": "default",
+            "source_pattern": None,
+            "source_description": None,
+            "threshold": dict(lang_cfg.get("threshold", {})),
+            "penalty": dict(lang_cfg.get("penalty", {})),
+        }
+
+        applied = []
+        for override in self.get_overrides():
+            pattern = override.get("pattern", "")
+            allowed_langs = override.get("languages")
+            if allowed_langs and language not in allowed_langs:
+                continue
+            if not pattern:
+                continue
+            if not self._match_pattern(rel_str, pattern):
+                continue
+            applied.append(override)
+
+        for override in applied:
+            override_threshold = override.get("threshold", {}) or {}
+            override_penalty = override.get("penalty", {}) or {}
+            for k, v in override_threshold.items():
+                result["threshold"][k] = v
+            for k, v in override_penalty.items():
+                result["penalty"][k] = v
+            result["source"] = "override"
+            result["source_pattern"] = override.get("pattern")
+            result["source_description"] = override.get("description")
+
+        return result
+
+    def get_effective_threshold(self, file_path: Path, language: str, metric: str) -> int:
+        eff = self.get_effective_config(file_path, language)
+        return eff["threshold"].get(metric, 0)
+
+    def get_effective_penalty(self, file_path: Path, language: str, metric: str) -> int:
+        eff = self.get_effective_config(file_path, language)
+        return eff["penalty"].get(metric, 0)

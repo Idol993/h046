@@ -1,11 +1,53 @@
 {
-  "generated_at": "2026-06-20T14:26:09.733342",
-  "threshold": 30,
-  "total_penalty": 52,
-  "total_files": 5,
-  "violation_files": 5,
-  "total_lines": 716,
+  "generated_at": "2026-06-20T14:43:57.272347",
+  "threshold": 50,
+  "total_penalty": 82,
+  "total_files": 8,
+  "violation_files": 7,
+  "total_lines": 1086,
   "top_functions": [
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\core\\CoreValidator.java",
+      "language": "java",
+      "function_name": "CoreValidator.classify",
+      "metric": "complexity",
+      "value": 6,
+      "threshold": 3,
+      "penalty": 10,
+      "start_line": 33,
+      "end_line": 40,
+      "rule_source": "override",
+      "rule_pattern": "test_src/core/*.java",
+      "rule_description": "核心 Java 最严格"
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\core\\utils.js",
+      "language": "javascript",
+      "function_name": "formatResult",
+      "metric": "complexity",
+      "value": 6,
+      "threshold": 5,
+      "penalty": 10,
+      "start_line": 13,
+      "end_line": 21,
+      "rule_source": "override",
+      "rule_pattern": "test_src/core/**",
+      "rule_description": "核心代码更严格"
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\core\\CoreValidator.java",
+      "language": "java",
+      "function_name": "CoreValidator.countValid",
+      "metric": "complexity",
+      "value": 5,
+      "threshold": 3,
+      "penalty": 10,
+      "start_line": 19,
+      "end_line": 31,
+      "rule_source": "override",
+      "rule_pattern": "test_src/core/*.java",
+      "rule_description": "核心 Java 最严格"
+    },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
       "language": "python",
@@ -15,7 +57,10 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 23,
-      "end_line": 82
+      "end_line": 82,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
@@ -26,7 +71,10 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 24,
-      "end_line": 86
+      "end_line": 86,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\app.js",
@@ -37,7 +85,10 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 10,
-      "end_line": 52
+      "end_line": 52,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
@@ -48,7 +99,10 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 6,
-      "end_line": 55
+      "end_line": 55,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
@@ -59,7 +113,24 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 107,
-      "end_line": 147
+      "end_line": 147,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "function_name": "withSwitchBranches",
+      "metric": "complexity",
+      "value": 16,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 58,
+      "end_line": 108,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
@@ -70,18 +141,10 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 85,
-      "end_line": 108
-    },
-    {
-      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
-      "language": "javascript",
-      "function_name": "withSwitchBranches",
-      "metric": "complexity",
-      "value": 14,
-      "threshold": 10,
-      "penalty": 5,
-      "start_line": 58,
-      "end_line": 108
+      "end_line": 108,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
@@ -92,7 +155,10 @@
       "threshold": 10,
       "penalty": 5,
       "start_line": 51,
-      "end_line": 104
+      "end_line": 104,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
@@ -103,7 +169,10 @@
       "threshold": 50,
       "penalty": 3,
       "start_line": 24,
-      "end_line": 86
+      "end_line": 86,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
@@ -114,7 +183,10 @@
       "threshold": 50,
       "penalty": 3,
       "start_line": 23,
-      "end_line": 82
+      "end_line": 82,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
@@ -125,7 +197,10 @@
       "threshold": 50,
       "penalty": 3,
       "start_line": 51,
-      "end_line": 104
+      "end_line": 104,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
@@ -136,16 +211,164 @@
       "threshold": 50,
       "penalty": 3,
       "start_line": 58,
-      "end_line": 108
+      "end_line": 108,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": ""
     }
   ],
   "files": [
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
+      "language": "python",
+      "total_lines": 118,
+      "total_penalty": 13,
+      "has_violations": true,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": "",
+      "function_details": [
+        {
+          "name": "very_complex_function",
+          "complexity": 32,
+          "lines": 60,
+          "start_line": 23,
+          "end_line": 82
+        },
+        {
+          "name": "another_complex_func",
+          "complexity": 14,
+          "lines": 24,
+          "start_line": 85,
+          "end_line": 108
+        },
+        {
+          "name": "simple_func",
+          "complexity": 1,
+          "lines": 2,
+          "start_line": 111,
+          "end_line": 112
+        },
+        {
+          "name": "another_simple",
+          "complexity": 2,
+          "lines": 4,
+          "start_line": 115,
+          "end_line": 118
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 32,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "very_complex_function",
+          "start_line": 23,
+          "end_line": 82,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        },
+        {
+          "metric": "function_lines",
+          "value": 60,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "very_complex_function",
+          "start_line": 23,
+          "end_line": 82,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        },
+        {
+          "metric": "complexity",
+          "value": 14,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "another_complex_func",
+          "start_line": 85,
+          "end_line": 108,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\core\\CoreValidator.java",
+      "language": "java",
+      "total_lines": 41,
+      "total_penalty": 20,
+      "has_violations": true,
+      "rule_source": "override",
+      "rule_pattern": "test_src/core/*.java",
+      "rule_description": "核心 Java 最严格",
+      "function_details": [
+        {
+          "name": "CoreValidator.validate",
+          "complexity": 3,
+          "lines": 9,
+          "start_line": 9,
+          "end_line": 17
+        },
+        {
+          "name": "CoreValidator.countValid",
+          "complexity": 5,
+          "lines": 13,
+          "start_line": 19,
+          "end_line": 31
+        },
+        {
+          "name": "CoreValidator.classify",
+          "complexity": 6,
+          "lines": 8,
+          "start_line": 33,
+          "end_line": 40
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 5,
+          "threshold": 3,
+          "penalty": 10,
+          "function_name": "CoreValidator.countValid",
+          "start_line": 19,
+          "end_line": 31,
+          "is_over": true,
+          "rule_source": "override",
+          "rule_pattern": "test_src/core/*.java",
+          "rule_description": "核心 Java 最严格"
+        },
+        {
+          "metric": "complexity",
+          "value": 6,
+          "threshold": 3,
+          "penalty": 10,
+          "function_name": "CoreValidator.classify",
+          "start_line": 33,
+          "end_line": 40,
+          "is_over": true,
+          "rule_source": "override",
+          "rule_pattern": "test_src/core/*.java",
+          "rule_description": "核心 Java 最严格"
+        }
+      ]
+    },
     {
       "path": "D:\\work\\twpw\\h046\\test_src\\app.js",
       "language": "javascript",
       "total_lines": 169,
       "total_penalty": 5,
       "has_violations": true,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": "",
       "function_details": [
         {
           "name": "processUserData",
@@ -248,138 +471,10 @@
           "function_name": "processUserData",
           "start_line": 10,
           "end_line": 52,
-          "is_over": true
-        }
-      ]
-    },
-    {
-      "path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
-      "language": "python",
-      "total_lines": 118,
-      "total_penalty": 13,
-      "has_violations": true,
-      "function_details": [
-        {
-          "name": "very_complex_function",
-          "complexity": 32,
-          "lines": 60,
-          "start_line": 23,
-          "end_line": 82
-        },
-        {
-          "name": "another_complex_func",
-          "complexity": 14,
-          "lines": 24,
-          "start_line": 85,
-          "end_line": 108
-        },
-        {
-          "name": "simple_func",
-          "complexity": 1,
-          "lines": 2,
-          "start_line": 111,
-          "end_line": 112
-        },
-        {
-          "name": "another_simple",
-          "complexity": 2,
-          "lines": 4,
-          "start_line": 115,
-          "end_line": 118
-        }
-      ],
-      "deductions": [
-        {
-          "metric": "complexity",
-          "value": 32,
-          "threshold": 10,
-          "penalty": 5,
-          "function_name": "very_complex_function",
-          "start_line": 23,
-          "end_line": 82,
-          "is_over": true
-        },
-        {
-          "metric": "function_lines",
-          "value": 60,
-          "threshold": 50,
-          "penalty": 3,
-          "function_name": "very_complex_function",
-          "start_line": 23,
-          "end_line": 82,
-          "is_over": true
-        },
-        {
-          "metric": "complexity",
-          "value": 14,
-          "threshold": 10,
-          "penalty": 5,
-          "function_name": "another_complex_func",
-          "start_line": 85,
-          "end_line": 108,
-          "is_over": true
-        }
-      ]
-    },
-    {
-      "path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
-      "language": "javascript",
-      "total_lines": 141,
-      "total_penalty": 13,
-      "has_violations": true,
-      "function_details": [
-        {
-          "name": "evaluateMultiLineTernary",
-          "complexity": 19,
-          "lines": 50,
-          "start_line": 6,
-          "end_line": 55
-        },
-        {
-          "name": "withSwitchBranches",
-          "complexity": 14,
-          "lines": 51,
-          "start_line": 58,
-          "end_line": 108
-        },
-        {
-          "name": "codeWithStringBraces",
-          "complexity": 7,
-          "lines": 26,
-          "start_line": 111,
-          "end_line": 136
-        }
-      ],
-      "deductions": [
-        {
-          "metric": "complexity",
-          "value": 19,
-          "threshold": 10,
-          "penalty": 5,
-          "function_name": "evaluateMultiLineTernary",
-          "start_line": 6,
-          "end_line": 55,
-          "is_over": true
-        },
-        {
-          "metric": "complexity",
-          "value": 14,
-          "threshold": 10,
-          "penalty": 5,
-          "function_name": "withSwitchBranches",
-          "start_line": 58,
-          "end_line": 108,
-          "is_over": true
-        },
-        {
-          "metric": "function_lines",
-          "value": 51,
-          "threshold": 50,
-          "penalty": 3,
-          "function_name": "withSwitchBranches",
-          "start_line": 58,
-          "end_line": 108,
-          "is_over": true
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
         }
       ]
     },
@@ -389,6 +484,9 @@
       "total_lines": 133,
       "total_penalty": 8,
       "has_violations": true,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": "",
       "function_details": [
         {
           "name": "OrderService.OrderService",
@@ -442,7 +540,10 @@
           "function_name": "OrderService.processOrder",
           "start_line": 24,
           "end_line": 86,
-          "is_over": true
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
         },
         {
           "metric": "function_lines",
@@ -452,7 +553,51 @@
           "function_name": "OrderService.processOrder",
           "start_line": 24,
           "end_line": 86,
-          "is_over": true
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\core\\utils.js",
+      "language": "javascript",
+      "total_lines": 21,
+      "total_penalty": 10,
+      "has_violations": true,
+      "rule_source": "override",
+      "rule_pattern": "test_src/core/**",
+      "rule_description": "核心代码更严格",
+      "function_details": [
+        {
+          "name": "parseInput",
+          "complexity": 3,
+          "lines": 11,
+          "start_line": 1,
+          "end_line": 11
+        },
+        {
+          "name": "formatResult",
+          "complexity": 6,
+          "lines": 9,
+          "start_line": 13,
+          "end_line": 21
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 6,
+          "threshold": 5,
+          "penalty": 10,
+          "function_name": "formatResult",
+          "start_line": 13,
+          "end_line": 21,
+          "is_over": true,
+          "rule_source": "override",
+          "rule_pattern": "test_src/core/**",
+          "rule_description": "核心代码更严格"
         }
       ]
     },
@@ -462,6 +607,9 @@
       "total_lines": 155,
       "total_penalty": 13,
       "has_violations": true,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": "",
       "function_details": [
         {
           "name": "PackageLevelUtils.PackageLevelUtils",
@@ -515,7 +663,10 @@
           "function_name": "PackageLevelUtils.resolveStatusCodes",
           "start_line": 51,
           "end_line": 104,
-          "is_over": true
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
         },
         {
           "metric": "function_lines",
@@ -525,7 +676,10 @@
           "function_name": "PackageLevelUtils.resolveStatusCodes",
           "start_line": 51,
           "end_line": 104,
-          "is_over": true
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
         },
         {
           "metric": "complexity",
@@ -535,9 +689,197 @@
           "function_name": "PackageLevelUtils.calculateRiskScore",
           "start_line": 107,
           "end_line": 147,
-          "is_over": true
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
         }
       ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "total_lines": 141,
+      "total_penalty": 13,
+      "has_violations": true,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": "",
+      "function_details": [
+        {
+          "name": "evaluateMultiLineTernary",
+          "complexity": 19,
+          "lines": 50,
+          "start_line": 6,
+          "end_line": 55
+        },
+        {
+          "name": "withSwitchBranches",
+          "complexity": 16,
+          "lines": 51,
+          "start_line": 58,
+          "end_line": 108
+        },
+        {
+          "name": "codeWithStringBraces",
+          "complexity": 7,
+          "lines": 26,
+          "start_line": 111,
+          "end_line": 136
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 19,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "evaluateMultiLineTernary",
+          "start_line": 6,
+          "end_line": 55,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        },
+        {
+          "metric": "complexity",
+          "value": 16,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "withSwitchBranches",
+          "start_line": 58,
+          "end_line": 108,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        },
+        {
+          "metric": "function_lines",
+          "value": 51,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "withSwitchBranches",
+          "start_line": 58,
+          "end_line": 108,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\legacy\\LegacyMonolith.jsx",
+      "language": "javascript",
+      "total_lines": 308,
+      "total_penalty": 0,
+      "has_violations": false,
+      "rule_source": "override",
+      "rule_pattern": "test_src/legacy/**",
+      "rule_description": "遗留代码临时放宽",
+      "function_details": [
+        {
+          "name": "constructor",
+          "complexity": 1,
+          "lines": 32,
+          "start_line": 14,
+          "end_line": 45
+        },
+        {
+          "name": "componentDidMount",
+          "complexity": 2,
+          "lines": 14,
+          "start_line": 47,
+          "end_line": 60
+        },
+        {
+          "name": "setupRefresh",
+          "complexity": 4,
+          "lines": 15,
+          "start_line": 62,
+          "end_line": 76
+        },
+        {
+          "name": "handleInput",
+          "complexity": 3,
+          "lines": 6,
+          "start_line": 78,
+          "end_line": 83
+        },
+        {
+          "name": "loadData",
+          "complexity": 9,
+          "lines": 28,
+          "start_line": 85,
+          "end_line": 112
+        },
+        {
+          "name": "validateField",
+          "complexity": 11,
+          "lines": 23,
+          "start_line": 114,
+          "end_line": 136
+        },
+        {
+          "name": "addError",
+          "complexity": 1,
+          "lines": 4,
+          "start_line": 138,
+          "end_line": 141
+        },
+        {
+          "name": "handleSubmit",
+          "complexity": 10,
+          "lines": 32,
+          "start_line": 143,
+          "end_line": 174
+        },
+        {
+          "name": "handleSelect",
+          "complexity": 10,
+          "lines": 23,
+          "start_line": 176,
+          "end_line": 198
+        },
+        {
+          "name": "handleBulk",
+          "complexity": 16,
+          "lines": 39,
+          "start_line": 200,
+          "end_line": 238
+        },
+        {
+          "name": "handlePagination",
+          "complexity": 2,
+          "lines": 3,
+          "start_line": 240,
+          "end_line": 242
+        },
+        {
+          "name": "handleSort",
+          "complexity": 3,
+          "lines": 7,
+          "start_line": 244,
+          "end_line": 250
+        },
+        {
+          "name": "handleFilter",
+          "complexity": 7,
+          "lines": 19,
+          "start_line": 252,
+          "end_line": 270
+        },
+        {
+          "name": "legacyCalculator",
+          "complexity": 16,
+          "lines": 32,
+          "start_line": 274,
+          "end_line": 305
+        }
+      ],
+      "deductions": []
     }
   ]
 }

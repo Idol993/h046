@@ -82,28 +82,28 @@
 <body>
     <div class="container">
         <h1>📊 技术债务分析报告</h1>
-        <p style="color: #7f8c8d; margin-bottom: 20px;">生成时间: 2026-06-20 14:28:25</p>
+        <p style="color: #7f8c8d; margin-bottom: 20px;">生成时间: 2026-06-20 14:45:31</p>
 
         <div class="summary-cards">
-            <div class="card danger">
+            <div class="card success">
                 <div class="label">总扣分</div>
-                <div class="value">52</div>
+                <div class="value">82</div>
             </div>
             <div class="card warning">
                 <div class="label">扫描文件数</div>
-                <div class="value">5</div>
+                <div class="value">8</div>
             </div>
             <div class="card danger">
                 <div class="label">违规文件数</div>
-                <div class="value">5</div>
+                <div class="value">7</div>
             </div>
             <div class="card info">
                 <div class="label">代码总行数</div>
-                <div class="value">716</div>
+                <div class="value">1086</div>
             </div>
-            <div class="card danger">
+            <div class="card success">
                 <div class="label">阈值</div>
-                <div class="value">50</div>
+                <div class="value">100</div>
             </div>
         </div>
 
@@ -124,8 +124,93 @@
         </div>
         
 
-        <h2>📋 违规文件详情 (5 个文件)</h2>
+        <h2>📋 违规文件详情 (7 个文件)</h2>
         
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <div>
+                        <span class="badge badge-lang-java">java</span>
+                        <span class="file-path">D:\work\twpw\h046\test_src\core\CoreValidator.java</span>
+                    </div>
+                    <span class="file-penalty danger">-20 分</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 41
+                    
+                    &nbsp;|&nbsp;
+                    <span style="color: #8e44ad; font-weight: 600;">
+                        📌 使用覆盖规则: 核心 Java 最严格
+                    </span>
+                    
+                </p>
+
+                
+                
+                <table class="func-table">
+                    <tr>
+                        <th>函数名</th>
+                        <th>圈复杂度</th>
+                        <th>行数</th>
+                        <th>位置</th>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>CoreValidator.validate</code></td>
+                        <td class="">3</td>
+                        <td class="">9</td>
+                        <td>L9-L17</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>CoreValidator.countValid</code></td>
+                        <td class="danger">5</td>
+                        <td class="">13</td>
+                        <td>L19-L31</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>CoreValidator.classify</code></td>
+                        <td class="danger">6</td>
+                        <td class="">8</td>
+                        <td>L33-L40</td>
+                    </tr>
+                    
+                </table>
+                
+
+                <ul class="deductions-list">
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>CoreValidator.countValid</strong>:
+                        
+                        5 > 3
+                        <span class="danger">(-10分)</span>
+                        
+                        <span style="margin-left: 10px; font-size: 12px; color: #8e44ad; font-weight: 600;">
+                            [覆盖规则: 核心 Java 最严格]
+                        </span>
+                        
+                    </li>
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>CoreValidator.classify</strong>:
+                        
+                        6 > 3
+                        <span class="danger">(-10分)</span>
+                        
+                        <span style="margin-left: 10px; font-size: 12px; color: #8e44ad; font-weight: 600;">
+                            [覆盖规则: 核心 Java 最严格]
+                        </span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
             
             <div class="file-section">
                 <div class="file-header">
@@ -135,8 +220,12 @@
                     </div>
                     <span class="file-penalty danger">-13 分</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 13px;">总行数: 155</p>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 155
+                    
+                </p>
 
+                
                 
                 <table class="func-table">
                     <tr>
@@ -200,6 +289,7 @@
                         
                         13 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -209,6 +299,7 @@
                         
                         54 > 50
                         <span class="danger">(-3分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -218,6 +309,7 @@
                         
                         18 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                 </ul>
@@ -231,8 +323,12 @@
                     </div>
                     <span class="file-penalty danger">-13 分</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 13px;">总行数: 118</p>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 118
+                    
+                </p>
 
+                
                 
                 <table class="func-table">
                     <tr>
@@ -282,6 +378,7 @@
                         
                         32 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -291,6 +388,7 @@
                         
                         60 > 50
                         <span class="danger">(-3分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -300,6 +398,7 @@
                         
                         14 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                 </ul>
@@ -313,8 +412,12 @@
                     </div>
                     <span class="file-penalty danger">-13 分</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 13px;">总行数: 141</p>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 141
+                    
+                </p>
 
+                
                 
                 <table class="func-table">
                     <tr>
@@ -333,7 +436,7 @@
                     
                     <tr class="danger-row">
                         <td><code>withSwitchBranches</code></td>
-                        <td class="danger">14</td>
+                        <td class="danger">16</td>
                         <td class="danger">51</td>
                         <td>L58-L108</td>
                     </tr>
@@ -357,6 +460,7 @@
                         
                         19 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -364,8 +468,9 @@
                         
                             <strong>withSwitchBranches</strong>:
                         
-                        14 > 10
+                        16 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -375,6 +480,71 @@
                         
                         51 > 50
                         <span class="danger">(-3分)</span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <div>
+                        <span class="badge badge-lang-javascript">javascript</span>
+                        <span class="file-path">D:\work\twpw\h046\test_src\core\utils.js</span>
+                    </div>
+                    <span class="file-penalty danger">-10 分</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 21
+                    
+                    &nbsp;|&nbsp;
+                    <span style="color: #8e44ad; font-weight: 600;">
+                        📌 使用覆盖规则: 核心代码更严格
+                    </span>
+                    
+                </p>
+
+                
+                
+                <table class="func-table">
+                    <tr>
+                        <th>函数名</th>
+                        <th>圈复杂度</th>
+                        <th>行数</th>
+                        <th>位置</th>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>parseInput</code></td>
+                        <td class="">3</td>
+                        <td class="">11</td>
+                        <td>L1-L11</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>formatResult</code></td>
+                        <td class="danger">6</td>
+                        <td class="">9</td>
+                        <td>L13-L21</td>
+                    </tr>
+                    
+                </table>
+                
+
+                <ul class="deductions-list">
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>formatResult</strong>:
+                        
+                        6 > 5
+                        <span class="danger">(-10分)</span>
+                        
+                        <span style="margin-left: 10px; font-size: 12px; color: #8e44ad; font-weight: 600;">
+                            [覆盖规则: 核心代码更严格]
+                        </span>
+                        
                     </li>
                     
                 </ul>
@@ -388,8 +558,12 @@
                     </div>
                     <span class="file-penalty danger">-8 分</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 13px;">总行数: 133</p>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 133
+                    
+                </p>
 
+                
                 
                 <table class="func-table">
                     <tr>
@@ -453,6 +627,7 @@
                         
                         29 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                     <li class="deduction-item">
@@ -462,6 +637,7 @@
                         
                         63 > 50
                         <span class="danger">(-3分)</span>
+                        
                     </li>
                     
                 </ul>
@@ -475,8 +651,12 @@
                     </div>
                     <span class="file-penalty danger">-5 分</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 13px;">总行数: 169</p>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: 169
+                    
+                </p>
 
+                
                 
                 <table class="func-table">
                     <tr>
@@ -589,6 +769,7 @@
                         
                         25 > 10
                         <span class="danger">(-5分)</span>
+                        
                     </li>
                     
                 </ul>
@@ -603,6 +784,13 @@
                 <th>语言</th>
                 <th>总行数</th>
                 <th>扣分</th>
+            </tr>
+            
+            <tr class="danger-row">
+                <td><code>D:\work\twpw\h046\test_src\core\CoreValidator.java</code></td>
+                <td><span class="badge badge-lang-java">java</span></td>
+                <td>41</td>
+                <td class="danger">20</td>
             </tr>
             
             <tr class="danger-row">
@@ -627,6 +815,13 @@
             </tr>
             
             <tr class="danger-row">
+                <td><code>D:\work\twpw\h046\test_src\core\utils.js</code></td>
+                <td><span class="badge badge-lang-javascript">javascript</span></td>
+                <td>21</td>
+                <td class="danger">10</td>
+            </tr>
+            
+            <tr class="danger-row">
                 <td><code>D:\work\twpw\h046\test_src\OrderService.java</code></td>
                 <td><span class="badge badge-lang-java">java</span></td>
                 <td>133</td>
@@ -640,6 +835,13 @@
                 <td class="danger">5</td>
             </tr>
             
+            <tr class="">
+                <td><code>D:\work\twpw\h046\test_src\legacy\LegacyMonolith.jsx</code></td>
+                <td><span class="badge badge-lang-javascript">javascript</span></td>
+                <td>308</td>
+                <td class="">0</td>
+            </tr>
+            
         </table>
     </div>
 
@@ -651,7 +853,7 @@
             data: {
                 labels: ["javascript", "python", "java"],
                 datasets: [{
-                    data: [2, 1, 2],
+                    data: [4, 1, 3],
                     backgroundColor: ['#3498db', '#f39c12', '#e74c3c', '#27ae60', '#9b59b6', '#1abc9c']
                 }]
             },
@@ -662,10 +864,10 @@
         new Chart(ctx2, {
             type: 'bar',
             data: {
-                labels: ["complex_module.py", "complex_ternary.js", "PackageLevelUtils.java", "OrderService.java", "app.js"],
+                labels: ["CoreValidator.java", "complex_module.py", "complex_ternary.js", "PackageLevelUtils.java", "utils.js", "OrderService.java", "app.js", "LegacyMonolith.jsx"],
                 datasets: [{
                     label: '扣分数',
-                    data: [13, 13, 13, 8, 5],
+                    data: [20, 13, 13, 13, 10, 8, 5, 0],
                     backgroundColor: '#e74c3c'
                 }]
             },
@@ -682,7 +884,7 @@
             data: {
                 labels: ["圈复杂度", "函数行数", "文件耦合度"],
                 datasets: [{
-                    data: [8, 4, 0],
+                    data: [11, 4, 0],
                     backgroundColor: ['#e74c3c', '#f39c12', '#9b59b6']
                 }]
             },

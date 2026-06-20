@@ -62,3 +62,40 @@ languages:
 
 default_language: python
 scan_depth: 10
+
+overrides:
+  - pattern: "test_src/legacy/**"
+    description: "遗留代码临时放宽"
+    threshold:
+      complexity: 30
+      function_lines: 120
+      coupling: 50
+    penalty:
+      complexity: 2
+      function_lines: 1
+      coupling: 5
+  - pattern: "test_src/legacy/*.js"
+    description: "遗留 JS 更宽松"
+    languages: [javascript]
+    threshold:
+      complexity: 40
+      function_lines: 150
+      coupling: 80
+  - pattern: "test_src/core/**"
+    description: "核心代码更严格"
+    threshold:
+      complexity: 5
+      function_lines: 30
+      coupling: 10
+    penalty:
+      complexity: 10
+      function_lines: 6
+      coupling: 15
+  - pattern: "test_src/core/*.java"
+    description: "核心 Java 最严格"
+    languages: [java]
+    threshold:
+      complexity: 3
+      function_lines: 20
+      coupling: 5
+

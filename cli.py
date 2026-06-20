@@ -1,5 +1,6 @@
 import sys
 import os
+import io
 import multiprocessing
 from pathlib import Path
 from typing import List, Optional, Tuple
@@ -10,6 +11,11 @@ from config import Config
 from analyzer import analyze_file, FileMetrics
 from scorer import Scorer, ProjectScore
 from reporter import Reporter
+
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+if sys.stderr.encoding and sys.stderr.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 
 def _collect_files(
@@ -130,7 +136,11 @@ def scan(
     workers: Optional[int],
 ):
     """扫描指定目录并生成技术债务报告"""
-    project_root = path.resolve()
+    scan_root = path.resolve()
+    if config_path:
+        project_root = config_path.resolve().parent
+    else:
+        project_root = Path.cwd()
 
     try:
         config = Config(config_path=config_path, project_root=project_root)
@@ -142,7 +152,7 @@ def scan(
         ext = "json" if output_format.lower() == "json" else "html"
         output = Path.cwd() / f"report.{ext}"
 
-    files_to_scan = _collect_files(project_root, config)
+    files_to_scan = _collect_files(scan_root, config)
     if not files_to_scan:
         click.echo("⚠️  未找到可扫描的代码文件")
         sys.exit(0)

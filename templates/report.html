@@ -135,9 +135,18 @@
                     </div>
                     <span class="file-penalty danger">-{{ file.total_penalty }} 分</span>
                 </div>
-                <p style="color: #7f8c8d; font-size: 13px;">总行数: {{ file.total_lines }}</p>
+                <p style="color: #7f8c8d; font-size: 13px;">
+                    总行数: {{ file.total_lines }}
+                    {% if file.rule_source == 'override' %}
+                    &nbsp;|&nbsp;
+                    <span style="color: #8e44ad; font-weight: 600;">
+                        📌 使用覆盖规则: {{ file.rule_description or file.rule_pattern }}
+                    </span>
+                    {% endif %}
+                </p>
 
                 {% if file.function_details %}
+                {% set file_thr = effective_thresholds.get(file.path, thresholds.get(file.language, {})) %}
                 <table class="func-table">
                     <tr>
                         <th>函数名</th>
@@ -146,10 +155,10 @@
                         <th>位置</th>
                     </tr>
                     {% for func in file.function_details %}
-                    <tr class="{{ 'danger-row' if func.complexity > thresholds[file.language].complexity or func.lines > thresholds[file.language].function_lines }}">
+                    <tr class="{{ 'danger-row' if func.complexity > file_thr.complexity or func.lines > file_thr.function_lines }}">
                         <td><code>{{ func.name }}</code></td>
-                        <td class="{{ 'danger' if func.complexity > thresholds[file.language].complexity }}">{{ func.complexity }}</td>
-                        <td class="{{ 'danger' if func.lines > thresholds[file.language].function_lines }}">{{ func.lines }}</td>
+                        <td class="{{ 'danger' if func.complexity > file_thr.complexity }}">{{ func.complexity }}</td>
+                        <td class="{{ 'danger' if func.lines > file_thr.function_lines }}">{{ func.lines }}</td>
                         <td>L{{ func.start_line }}-L{{ func.end_line }}</td>
                     </tr>
                     {% endfor %}
@@ -165,6 +174,11 @@
                         {% endif %}
                         {{ d.value }} > {{ d.threshold }}
                         <span class="danger">(-{{ d.penalty }}分)</span>
+                        {% if d.rule_source == 'override' %}
+                        <span style="margin-left: 10px; font-size: 12px; color: #8e44ad; font-weight: 600;">
+                            [覆盖规则: {{ d.rule_description or d.rule_pattern }}]
+                        </span>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>

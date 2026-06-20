@@ -315,6 +315,9 @@ class JavaScriptAnalyzer:
             case_re = re.compile(r'\bcase\b\s+')
             count += len(case_re.findall(line))
 
+            default_re = re.compile(r'\bdefault\b\s*:')
+            count += len(default_re.findall(line))
+
             catch_re = re.compile(r'\bcatch\b')
             count += len(catch_re.findall(line))
 
