@@ -1,0 +1,64 @@
+languages:
+  python:
+    extensions: [".py"]
+    branch_keywords:
+      - "If"
+      - "For"
+      - "While"
+      - "Try"
+      - "ExceptHandler"
+      - "comprehension"
+      - "BoolOp"
+    threshold:
+      complexity: 10
+      function_lines: 50
+      coupling: 20
+    penalty:
+      complexity: 5
+      function_lines: 3
+      coupling: 10
+  javascript:
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
+    branch_keywords:
+      - "IfStatement"
+      - "ForStatement"
+      - "ForInStatement"
+      - "ForOfStatement"
+      - "WhileStatement"
+      - "DoWhileStatement"
+      - "SwitchCase"
+      - "CatchClause"
+      - "ConditionalExpression"
+      - "LogicalExpression"
+    threshold:
+      complexity: 10
+      function_lines: 50
+      coupling: 20
+    penalty:
+      complexity: 5
+      function_lines: 3
+      coupling: 10
+  java:
+    extensions: [".java"]
+    branch_keywords:
+      - "IF"
+      - "FOR"
+      - "WHILE"
+      - "DO"
+      - "SWITCH"
+      - "CASE"
+      - "CATCH"
+      - "TERNARY"
+      - "AND"
+      - "OR"
+    threshold:
+      complexity: 10
+      function_lines: 50
+      coupling: 20
+    penalty:
+      complexity: 5
+      function_lines: 3
+      coupling: 10
+
+default_language: python
+scan_depth: 10

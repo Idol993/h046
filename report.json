@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-06-20T14:02:00.495155",
+  "threshold": 100,
+  "total_penalty": 13,
+  "total_files": 2,
+  "violation_files": 1,
+  "total_lines": 175,
+  "files": [
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\app.js",
+      "language": "javascript",
+      "total_lines": 57,
+      "total_penalty": 0,
+      "has_violations": false,
+      "function_details": [
+        {
+          "name": "anonymous",
+          "complexity": 1,
+          "lines": 1,
+          "start_line": 1,
+          "end_line": 1
+        },
+        {
+          "name": "anonymous",
+          "complexity": 1,
+          "lines": 4,
+          "start_line": 2,
+          "end_line": 5
+        },
+        {
+          "name": "anonymous",
+          "complexity": 1,
+          "lines": 1,
+          "start_line": 6,
+          "end_line": 6
+        },
+        {
+          "name": "anonymous",
+          "complexity": 1,
+          "lines": 1,
+          "start_line": 7,
+          "end_line": 7
+        },
+        {
+          "name": "anonymous",
+          "complexity": 2,
+          "lines": 45,
+          "start_line": 8,
+          "end_line": 52
+        },
+        {
+          "name": "anonymous",
+          "complexity": 1,
+          "lines": 5,
+          "start_line": 53,
+          "end_line": 57
+        }
+      ],
+      "deductions": []
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
+      "language": "python",
+      "total_lines": 118,
+      "total_penalty": 13,
+      "has_violations": true,
+      "function_details": [
+        {
+          "name": "very_complex_function",
+          "complexity": 32,
+          "lines": 60,
+          "start_line": 23,
+          "end_line": 82
+        },
+        {
+          "name": "another_complex_func",
+          "complexity": 14,
+          "lines": 24,
+          "start_line": 85,
+          "end_line": 108
+        },
+        {
+          "name": "simple_func",
+          "complexity": 1,
+          "lines": 2,
+          "start_line": 111,
+          "end_line": 112
+        },
+        {
+          "name": "another_simple",
+          "complexity": 2,
+          "lines": 4,
+          "start_line": 115,
+          "end_line": 118
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 32,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "very_complex_function",
+          "is_over": true
+        },
+        {
+          "metric": "function_lines",
+          "value": 60,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "very_complex_function",
+          "is_over": true
+        },
+        {
+          "metric": "complexity",
+          "value": 14,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "another_complex_func",
+          "is_over": true
+        }
+      ]
+    }
+  ]
+}
