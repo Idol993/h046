@@ -82,28 +82,28 @@
 <body>
     <div class="container">
         <h1>📊 技术债务分析报告</h1>
-        <p style="color: #7f8c8d; margin-bottom: 20px;">生成时间: 2026-06-20 14:14:45</p>
+        <p style="color: #7f8c8d; margin-bottom: 20px;">生成时间: 2026-06-20 14:28:25</p>
 
         <div class="summary-cards">
             <div class="card danger">
                 <div class="label">总扣分</div>
-                <div class="value">26</div>
+                <div class="value">52</div>
             </div>
             <div class="card warning">
                 <div class="label">扫描文件数</div>
-                <div class="value">3</div>
+                <div class="value">5</div>
             </div>
             <div class="card danger">
                 <div class="label">违规文件数</div>
-                <div class="value">3</div>
+                <div class="value">5</div>
             </div>
             <div class="card info">
                 <div class="label">代码总行数</div>
-                <div class="value">420</div>
+                <div class="value">716</div>
             </div>
             <div class="card danger">
                 <div class="label">阈值</div>
-                <div class="value">10</div>
+                <div class="value">50</div>
             </div>
         </div>
 
@@ -124,8 +124,104 @@
         </div>
         
 
-        <h2>📋 违规文件详情 (3 个文件)</h2>
+        <h2>📋 违规文件详情 (5 个文件)</h2>
         
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <div>
+                        <span class="badge badge-lang-java">java</span>
+                        <span class="file-path">D:\work\twpw\h046\test_src\PackageLevelUtils.java</span>
+                    </div>
+                    <span class="file-penalty danger">-13 分</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 13px;">总行数: 155</p>
+
+                
+                <table class="func-table">
+                    <tr>
+                        <th>函数名</th>
+                        <th>圈复杂度</th>
+                        <th>行数</th>
+                        <th>位置</th>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>PackageLevelUtils.PackageLevelUtils</code></td>
+                        <td class="">1</td>
+                        <td class="">5</td>
+                        <td>L16-L20</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>PackageLevelUtils.PackageLevelUtils</code></td>
+                        <td class="">1</td>
+                        <td class="">5</td>
+                        <td>L23-L27</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>PackageLevelUtils.classifyCustomerType</code></td>
+                        <td class="">6</td>
+                        <td class="">19</td>
+                        <td>L30-L48</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>PackageLevelUtils.resolveStatusCodes</code></td>
+                        <td class="danger">13</td>
+                        <td class="danger">54</td>
+                        <td>L51-L104</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>PackageLevelUtils.calculateRiskScore</code></td>
+                        <td class="danger">18</td>
+                        <td class="">41</td>
+                        <td>L107-L147</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>PackageLevelUtils.stringBraceSafe</code></td>
+                        <td class="">1</td>
+                        <td class="">5</td>
+                        <td>L150-L154</td>
+                    </tr>
+                    
+                </table>
+                
+
+                <ul class="deductions-list">
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>PackageLevelUtils.resolveStatusCodes</strong>:
+                        
+                        13 > 10
+                        <span class="danger">(-5分)</span>
+                    </li>
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-function_lines">function_lines</span>
+                        
+                            <strong>PackageLevelUtils.resolveStatusCodes</strong>:
+                        
+                        54 > 50
+                        <span class="danger">(-3分)</span>
+                    </li>
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>PackageLevelUtils.calculateRiskScore</strong>:
+                        
+                        18 > 10
+                        <span class="danger">(-5分)</span>
+                    </li>
+                    
+                </ul>
+            </div>
             
             <div class="file-section">
                 <div class="file-header">
@@ -204,6 +300,81 @@
                         
                         14 > 10
                         <span class="danger">(-5分)</span>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <div>
+                        <span class="badge badge-lang-javascript">javascript</span>
+                        <span class="file-path">D:\work\twpw\h046\test_src\complex_ternary.js</span>
+                    </div>
+                    <span class="file-penalty danger">-13 分</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 13px;">总行数: 141</p>
+
+                
+                <table class="func-table">
+                    <tr>
+                        <th>函数名</th>
+                        <th>圈复杂度</th>
+                        <th>行数</th>
+                        <th>位置</th>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>evaluateMultiLineTernary</code></td>
+                        <td class="danger">19</td>
+                        <td class="">50</td>
+                        <td>L6-L55</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>withSwitchBranches</code></td>
+                        <td class="danger">14</td>
+                        <td class="danger">51</td>
+                        <td>L58-L108</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>codeWithStringBraces</code></td>
+                        <td class="">7</td>
+                        <td class="">26</td>
+                        <td>L111-L136</td>
+                    </tr>
+                    
+                </table>
+                
+
+                <ul class="deductions-list">
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>evaluateMultiLineTernary</strong>:
+                        
+                        19 > 10
+                        <span class="danger">(-5分)</span>
+                    </li>
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>withSwitchBranches</strong>:
+                        
+                        14 > 10
+                        <span class="danger">(-5分)</span>
+                    </li>
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-function_lines">function_lines</span>
+                        
+                            <strong>withSwitchBranches</strong>:
+                        
+                        51 > 50
+                        <span class="danger">(-3分)</span>
                     </li>
                     
                 </ul>
@@ -435,9 +606,23 @@
             </tr>
             
             <tr class="danger-row">
+                <td><code>D:\work\twpw\h046\test_src\PackageLevelUtils.java</code></td>
+                <td><span class="badge badge-lang-java">java</span></td>
+                <td>155</td>
+                <td class="danger">13</td>
+            </tr>
+            
+            <tr class="danger-row">
                 <td><code>D:\work\twpw\h046\test_src\complex_module.py</code></td>
                 <td><span class="badge badge-lang-python">python</span></td>
                 <td>118</td>
+                <td class="danger">13</td>
+            </tr>
+            
+            <tr class="danger-row">
+                <td><code>D:\work\twpw\h046\test_src\complex_ternary.js</code></td>
+                <td><span class="badge badge-lang-javascript">javascript</span></td>
+                <td>141</td>
                 <td class="danger">13</td>
             </tr>
             
@@ -464,9 +649,9 @@
         new Chart(ctx1, {
             type: 'doughnut',
             data: {
-                labels: ["python", "javascript", "java"],
+                labels: ["javascript", "python", "java"],
                 datasets: [{
-                    data: [1, 1, 1],
+                    data: [2, 1, 2],
                     backgroundColor: ['#3498db', '#f39c12', '#e74c3c', '#27ae60', '#9b59b6', '#1abc9c']
                 }]
             },
@@ -477,10 +662,10 @@
         new Chart(ctx2, {
             type: 'bar',
             data: {
-                labels: ["complex_module.py", "OrderService.java", "app.js"],
+                labels: ["complex_module.py", "complex_ternary.js", "PackageLevelUtils.java", "OrderService.java", "app.js"],
                 datasets: [{
                     label: '扣分数',
-                    data: [13, 8, 5],
+                    data: [13, 13, 13, 8, 5],
                     backgroundColor: '#e74c3c'
                 }]
             },
@@ -497,7 +682,7 @@
             data: {
                 labels: ["圈复杂度", "函数行数", "文件耦合度"],
                 datasets: [{
-                    data: [4, 2, 0],
+                    data: [8, 4, 0],
                     backgroundColor: ['#e74c3c', '#f39c12', '#9b59b6']
                 }]
             },

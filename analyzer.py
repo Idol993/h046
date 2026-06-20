@@ -325,11 +325,12 @@ class JavaScriptAnalyzer:
             or_count = line.count('||')
             count += and_count + or_count
 
-            ternary_re = re.compile(r'\?\s*[^.?]*\s*:')
-            ternary_matches = ternary_re.findall(line)
-            for m in ternary_matches:
-                if not re.match(r'\?\s*\.', m):
-                    count += 1
+        body_text = "\n".join(clean_lines[start - 1 : min(end, len(clean_lines))])
+        ternary_re = re.compile(r'\?[^.?:]*?:', re.DOTALL)
+        ternary_matches = ternary_re.findall(body_text)
+        for m in ternary_matches:
+            if not m.startswith('?.'):
+                count += 1
 
         return count
 
@@ -396,7 +397,7 @@ class JavaAnalyzer:
     )
     _CONSTRUCTOR_PATTERN = re.compile(
         r"""(?:
-            (?P<modifiers>(?:public|private|protected)\s+)?
+            (?P<modifiers>(?:public|private|protected|static|final|synchronized|\s)*)
             (?P<name>\w+)
             \s*\([^)]*\)
             (?:\s*throws\s+[\w,\s]+)?
@@ -455,6 +456,20 @@ class JavaAnalyzer:
                 i = end_idx + 1
                 continue
 
+            constructor_match = self._CONSTRUCTOR_PATTERN.search(line)
+            if constructor_match and class_name:
+                name = constructor_match.group("name")
+                if name == class_name:
+                    end_idx = _BraceBalancer.find_block_end(lines, i)
+                    display_name = f"{class_name}.{name}"
+                    methods.append({
+                        "name": display_name,
+                        "start": i + 1,
+                        "end": end_idx + 1,
+                    })
+                    i = end_idx + 1
+                    continue
+
             i += 1
 
         return methods
@@ -462,6 +477,7 @@ class JavaAnalyzer:
     def _count_complexity(self, lines: List[str], start: int, end: int) -> int:
         count = 0
         in_block_comment = False
+        processed_lines: List[str] = []
         for i in range(start - 1, min(end, len(lines))):
             line = lines[i]
             stripped = line.strip()
@@ -473,6 +489,7 @@ class JavaAnalyzer:
                     line = after
                     stripped = line.strip()
                 else:
+                    processed_lines.append('')
                     continue
 
             if '/*' in line:
@@ -487,7 +504,10 @@ class JavaAnalyzer:
                     stripped = line.strip()
 
             if stripped.startswith('//') or not stripped:
+                processed_lines.append('')
                 continue
+
+            processed_lines.append(line)
 
             if_re = re.compile(r'\bif\b')
             count += len(if_re.findall(line))
@@ -501,6 +521,9 @@ class JavaAnalyzer:
             case_re = re.compile(r'\bcase\b\s+')
             count += len(case_re.findall(line))
 
+            default_re = re.compile(r'\bdefault\b\s*:')
+            count += len(default_re.findall(line))
+
             catch_re = re.compile(r'\bcatch\b')
             count += len(catch_re.findall(line))
 
@@ -511,10 +534,12 @@ class JavaAnalyzer:
             or_count = line.count('||')
             count += and_count + or_count
 
-            ternary_re = re.compile(r'\?\s*[^.?]*\s*:')
-            for m in ternary_re.findall(line):
-                if not re.match(r'\?\s*\.', m):
-                    count += 1
+        body_text = "\n".join(processed_lines)
+        ternary_re = re.compile(r'\?[^.?:]*?:', re.DOTALL)
+        ternary_matches = ternary_re.findall(body_text)
+        for m in ternary_matches:
+            if not m.startswith('?.'):
+                count += 1
 
         return count
 

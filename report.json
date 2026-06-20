@@ -1,11 +1,33 @@
 {
-  "generated_at": "2026-06-20T14:15:00.179210",
-  "threshold": 100,
-  "total_penalty": 26,
-  "total_files": 3,
-  "violation_files": 3,
-  "total_lines": 420,
+  "generated_at": "2026-06-20T14:26:09.733342",
+  "threshold": 30,
+  "total_penalty": 52,
+  "total_files": 5,
+  "violation_files": 5,
+  "total_lines": 716,
   "top_functions": [
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
+      "language": "python",
+      "function_name": "very_complex_function",
+      "metric": "complexity",
+      "value": 32,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 23,
+      "end_line": 82
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
+      "language": "java",
+      "function_name": "OrderService.processOrder",
+      "metric": "complexity",
+      "value": 29,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 24,
+      "end_line": 86
+    },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\app.js",
       "language": "javascript",
@@ -18,15 +40,26 @@
       "end_line": 52
     },
     {
-      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
-      "language": "python",
-      "function_name": "very_complex_function",
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "function_name": "evaluateMultiLineTernary",
       "metric": "complexity",
-      "value": 32,
+      "value": 19,
       "threshold": 10,
       "penalty": 5,
-      "start_line": 23,
-      "end_line": 82
+      "start_line": 6,
+      "end_line": 55
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
+      "language": "java",
+      "function_name": "PackageLevelUtils.calculateRiskScore",
+      "metric": "complexity",
+      "value": 18,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 107,
+      "end_line": 147
     },
     {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
@@ -40,13 +73,35 @@
       "end_line": 108
     },
     {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "function_name": "withSwitchBranches",
+      "metric": "complexity",
+      "value": 14,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 58,
+      "end_line": 108
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
+      "language": "java",
+      "function_name": "PackageLevelUtils.resolveStatusCodes",
+      "metric": "complexity",
+      "value": 13,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 51,
+      "end_line": 104
+    },
+    {
       "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
       "language": "java",
       "function_name": "OrderService.processOrder",
-      "metric": "complexity",
-      "value": 29,
-      "threshold": 10,
-      "penalty": 5,
+      "metric": "function_lines",
+      "value": 63,
+      "threshold": 50,
+      "penalty": 3,
       "start_line": 24,
       "end_line": 86
     },
@@ -62,15 +117,26 @@
       "end_line": 82
     },
     {
-      "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
       "language": "java",
-      "function_name": "OrderService.processOrder",
+      "function_name": "PackageLevelUtils.resolveStatusCodes",
       "metric": "function_lines",
-      "value": 63,
+      "value": 54,
       "threshold": 50,
       "penalty": 3,
-      "start_line": 24,
-      "end_line": 86
+      "start_line": 51,
+      "end_line": 104
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "function_name": "withSwitchBranches",
+      "metric": "function_lines",
+      "value": 51,
+      "threshold": 50,
+      "penalty": 3,
+      "start_line": 58,
+      "end_line": 108
     }
   ],
   "files": [
@@ -256,6 +322,68 @@
       ]
     },
     {
+      "path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "total_lines": 141,
+      "total_penalty": 13,
+      "has_violations": true,
+      "function_details": [
+        {
+          "name": "evaluateMultiLineTernary",
+          "complexity": 19,
+          "lines": 50,
+          "start_line": 6,
+          "end_line": 55
+        },
+        {
+          "name": "withSwitchBranches",
+          "complexity": 14,
+          "lines": 51,
+          "start_line": 58,
+          "end_line": 108
+        },
+        {
+          "name": "codeWithStringBraces",
+          "complexity": 7,
+          "lines": 26,
+          "start_line": 111,
+          "end_line": 136
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 19,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "evaluateMultiLineTernary",
+          "start_line": 6,
+          "end_line": 55,
+          "is_over": true
+        },
+        {
+          "metric": "complexity",
+          "value": 14,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "withSwitchBranches",
+          "start_line": 58,
+          "end_line": 108,
+          "is_over": true
+        },
+        {
+          "metric": "function_lines",
+          "value": 51,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "withSwitchBranches",
+          "start_line": 58,
+          "end_line": 108,
+          "is_over": true
+        }
+      ]
+    },
+    {
       "path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
       "language": "java",
       "total_lines": 133,
@@ -324,6 +452,89 @@
           "function_name": "OrderService.processOrder",
           "start_line": 24,
           "end_line": 86,
+          "is_over": true
+        }
+      ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\PackageLevelUtils.java",
+      "language": "java",
+      "total_lines": 155,
+      "total_penalty": 13,
+      "has_violations": true,
+      "function_details": [
+        {
+          "name": "PackageLevelUtils.PackageLevelUtils",
+          "complexity": 1,
+          "lines": 5,
+          "start_line": 16,
+          "end_line": 20
+        },
+        {
+          "name": "PackageLevelUtils.PackageLevelUtils",
+          "complexity": 1,
+          "lines": 5,
+          "start_line": 23,
+          "end_line": 27
+        },
+        {
+          "name": "PackageLevelUtils.classifyCustomerType",
+          "complexity": 6,
+          "lines": 19,
+          "start_line": 30,
+          "end_line": 48
+        },
+        {
+          "name": "PackageLevelUtils.resolveStatusCodes",
+          "complexity": 13,
+          "lines": 54,
+          "start_line": 51,
+          "end_line": 104
+        },
+        {
+          "name": "PackageLevelUtils.calculateRiskScore",
+          "complexity": 18,
+          "lines": 41,
+          "start_line": 107,
+          "end_line": 147
+        },
+        {
+          "name": "PackageLevelUtils.stringBraceSafe",
+          "complexity": 1,
+          "lines": 5,
+          "start_line": 150,
+          "end_line": 154
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 13,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "PackageLevelUtils.resolveStatusCodes",
+          "start_line": 51,
+          "end_line": 104,
+          "is_over": true
+        },
+        {
+          "metric": "function_lines",
+          "value": 54,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "PackageLevelUtils.resolveStatusCodes",
+          "start_line": 51,
+          "end_line": 104,
+          "is_over": true
+        },
+        {
+          "metric": "complexity",
+          "value": 18,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "PackageLevelUtils.calculateRiskScore",
+          "start_line": 107,
+          "end_line": 147,
           "is_over": true
         }
       ]

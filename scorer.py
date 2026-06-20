@@ -77,7 +77,15 @@ class ProjectScore:
                         "start_line": d.start_line,
                         "end_line": d.end_line,
                     })
-        func_deductions.sort(key=lambda x: -x["penalty"])
+        func_deductions.sort(
+            key=lambda x: (
+                -x["penalty"],
+                -x["value"],
+                x["file_path"],
+                x["function_name"],
+                x["metric"],
+            )
+        )
         return func_deductions
 
 

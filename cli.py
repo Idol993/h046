@@ -177,7 +177,7 @@ def scan(
         click.echo("🚨 Top 违规文件 (按扣分排序):")
         top_violations = sorted(
             project_score.files_with_violations,
-            key=lambda x: -x.total_penalty,
+            key=lambda x: (-x.total_penalty, x.path),
         )[:10]
         for i, fs in enumerate(top_violations, 1):
             click.echo(
