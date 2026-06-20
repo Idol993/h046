@@ -11,13 +11,43 @@ DEBTIGNORE_FILENAME = ".debtignore"
 
 
 class Config:
-    def __init__(self, config_path: Optional[Path] = None, project_root: Optional[Path] = None):
+    def __init__(
+        self,
+        config_path: Optional[Path] = None,
+        project_root: Optional[Path] = None,
+        scan_root: Optional[Path] = None,
+    ):
         self.config_path = Path(config_path) if config_path else DEFAULT_CONFIG_PATH
         self.project_root = Path(project_root) if project_root else Path.cwd()
+        self.scan_root = Path(scan_root) if scan_root else self.project_root
         self._data: Dict[str, Any] = {}
         self._ignore_patterns: List[str] = []
         self.load()
         self.load_debtignore()
+
+    def _resolve_rel(self, file_path: Path) -> str:
+        if file_path.is_absolute():
+            for root in (self.scan_root, self.project_root):
+                try:
+                    return str(file_path.relative_to(root)).replace("\\", "/")
+                except ValueError:
+                    continue
+            return file_path.name
+        return str(file_path).replace("\\", "/")
+
+    def _resolve_rel_all(self, file_path: Path) -> List[str]:
+        results = []
+        if file_path.is_absolute():
+            for root in (self.scan_root, self.project_root):
+                try:
+                    results.append(str(file_path.relative_to(root)).replace("\\", "/"))
+                except ValueError:
+                    continue
+            if not results:
+                results.append(file_path.name)
+        else:
+            results.append(str(file_path).replace("\\", "/"))
+        return results
 
     def load(self) -> None:
         if self.config_path.exists():
@@ -36,16 +66,16 @@ class Config:
                         self._ignore_patterns.append(line)
 
     def is_ignored(self, file_path: Path) -> bool:
-        rel_path = file_path.relative_to(self.project_root) if file_path.is_absolute() else file_path
-        rel_str = str(rel_path).replace("\\", "/")
-        filename = Path(rel_str).name
-        for pattern in self._ignore_patterns:
-            if "/" in pattern:
-                if fnmatch.fnmatch(rel_str, pattern) or fnmatch.fnmatch(rel_str, f"{pattern.rstrip('/')}/**"):
-                    return True
-            else:
-                if fnmatch.fnmatch(filename, pattern):
-                    return True
+        rel_paths = self._resolve_rel_all(file_path)
+        for rel_str in rel_paths:
+            filename = Path(rel_str).name
+            for pattern in self._ignore_patterns:
+                if "/" in pattern:
+                    if fnmatch.fnmatch(rel_str, pattern) or fnmatch.fnmatch(rel_str, f"{pattern.rstrip('/')}/**"):
+                        return True
+                else:
+                    if fnmatch.fnmatch(filename, pattern):
+                        return True
         return False
 
     def get_languages(self) -> Dict[str, Dict[str, Any]]:
@@ -109,14 +139,7 @@ class Config:
     def get_effective_config(
         self, file_path: Path, language: str
     ) -> Dict[str, Any]:
-        if file_path.is_absolute():
-            try:
-                rel_path = file_path.relative_to(self.project_root)
-            except ValueError:
-                rel_path = Path(file_path.name)
-        else:
-            rel_path = file_path
-        rel_str = str(rel_path).replace("\\", "/")
+        rel_paths = self._resolve_rel_all(file_path)
 
         lang_cfg = self.get_language_config(language) or {}
         result = {
@@ -125,6 +148,7 @@ class Config:
             "source_description": None,
             "threshold": dict(lang_cfg.get("threshold", {})),
             "penalty": dict(lang_cfg.get("penalty", {})),
+            "resolved_path": self._resolve_rel(file_path),
         }
 
         applied = []
@@ -135,7 +159,12 @@ class Config:
                 continue
             if not pattern:
                 continue
-            if not self._match_pattern(rel_str, pattern):
+            matched = False
+            for rel_str in rel_paths:
+                if self._match_pattern(rel_str, pattern):
+                    matched = True
+                    break
+            if not matched:
                 continue
             applied.append(override)
 

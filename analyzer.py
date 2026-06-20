@@ -297,6 +297,8 @@ class JavaScriptAnalyzer:
 
     def _count_complexity(self, clean_lines: List[str], start: int, end: int) -> int:
         count = 0
+        switch_count = 0
+        default_count = 0
         for i in range(start - 1, min(end, len(clean_lines))):
             line = clean_lines[i]
             stripped = line.strip()
@@ -315,8 +317,11 @@ class JavaScriptAnalyzer:
             case_re = re.compile(r'\bcase\b\s+')
             count += len(case_re.findall(line))
 
+            switch_re = re.compile(r'\bswitch\b')
+            switch_count += len(switch_re.findall(line))
+
             default_re = re.compile(r'\bdefault\b\s*:')
-            count += len(default_re.findall(line))
+            default_count += len(default_re.findall(line))
 
             catch_re = re.compile(r'\bcatch\b')
             count += len(catch_re.findall(line))
@@ -327,6 +332,8 @@ class JavaScriptAnalyzer:
             and_count = line.count('&&')
             or_count = line.count('||')
             count += and_count + or_count
+
+        count += min(switch_count, default_count)
 
         body_text = "\n".join(clean_lines[start - 1 : min(end, len(clean_lines))])
         ternary_re = re.compile(r'\?[^.?:]*?:', re.DOTALL)
@@ -479,6 +486,8 @@ class JavaAnalyzer:
 
     def _count_complexity(self, lines: List[str], start: int, end: int) -> int:
         count = 0
+        switch_count = 0
+        default_count = 0
         in_block_comment = False
         processed_lines: List[str] = []
         for i in range(start - 1, min(end, len(lines))):
@@ -524,8 +533,11 @@ class JavaAnalyzer:
             case_re = re.compile(r'\bcase\b\s+')
             count += len(case_re.findall(line))
 
+            switch_re = re.compile(r'\bswitch\b')
+            switch_count += len(switch_re.findall(line))
+
             default_re = re.compile(r'\bdefault\b\s*:')
-            count += len(default_re.findall(line))
+            default_count += len(default_re.findall(line))
 
             catch_re = re.compile(r'\bcatch\b')
             count += len(catch_re.findall(line))
@@ -536,6 +548,8 @@ class JavaAnalyzer:
             and_count = line.count('&&')
             or_count = line.count('||')
             count += and_count + or_count
+
+        count += min(switch_count, default_count)
 
         body_text = "\n".join(processed_lines)
         ternary_re = re.compile(r'\?[^.?:]*?:', re.DOTALL)

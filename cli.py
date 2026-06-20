@@ -143,7 +143,7 @@ def scan(
         project_root = Path.cwd()
 
     try:
-        config = Config(config_path=config_path, project_root=project_root)
+        config = Config(config_path=config_path, project_root=project_root, scan_root=scan_root)
     except Exception as e:
         click.echo(f"❌ 加载配置失败: {e}", err=True)
         sys.exit(2)

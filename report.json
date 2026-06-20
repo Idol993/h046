@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-20T14:43:57.272347",
-  "threshold": 50,
+  "generated_at": "2026-06-20T14:59:36.854204",
+  "threshold": 100,
   "total_penalty": 82,
   "total_files": 8,
   "violation_files": 7,
@@ -300,67 +300,6 @@
       ]
     },
     {
-      "path": "D:\\work\\twpw\\h046\\test_src\\core\\CoreValidator.java",
-      "language": "java",
-      "total_lines": 41,
-      "total_penalty": 20,
-      "has_violations": true,
-      "rule_source": "override",
-      "rule_pattern": "test_src/core/*.java",
-      "rule_description": "核心 Java 最严格",
-      "function_details": [
-        {
-          "name": "CoreValidator.validate",
-          "complexity": 3,
-          "lines": 9,
-          "start_line": 9,
-          "end_line": 17
-        },
-        {
-          "name": "CoreValidator.countValid",
-          "complexity": 5,
-          "lines": 13,
-          "start_line": 19,
-          "end_line": 31
-        },
-        {
-          "name": "CoreValidator.classify",
-          "complexity": 6,
-          "lines": 8,
-          "start_line": 33,
-          "end_line": 40
-        }
-      ],
-      "deductions": [
-        {
-          "metric": "complexity",
-          "value": 5,
-          "threshold": 3,
-          "penalty": 10,
-          "function_name": "CoreValidator.countValid",
-          "start_line": 19,
-          "end_line": 31,
-          "is_over": true,
-          "rule_source": "override",
-          "rule_pattern": "test_src/core/*.java",
-          "rule_description": "核心 Java 最严格"
-        },
-        {
-          "metric": "complexity",
-          "value": 6,
-          "threshold": 3,
-          "penalty": 10,
-          "function_name": "CoreValidator.classify",
-          "start_line": 33,
-          "end_line": 40,
-          "is_over": true,
-          "rule_source": "override",
-          "rule_pattern": "test_src/core/*.java",
-          "rule_description": "核心 Java 最严格"
-        }
-      ]
-    },
-    {
       "path": "D:\\work\\twpw\\h046\\test_src\\app.js",
       "language": "javascript",
       "total_lines": 169,
@@ -479,6 +418,80 @@
       ]
     },
     {
+      "path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
+      "language": "javascript",
+      "total_lines": 141,
+      "total_penalty": 13,
+      "has_violations": true,
+      "rule_source": "default",
+      "rule_pattern": "",
+      "rule_description": "",
+      "function_details": [
+        {
+          "name": "evaluateMultiLineTernary",
+          "complexity": 19,
+          "lines": 50,
+          "start_line": 6,
+          "end_line": 55
+        },
+        {
+          "name": "withSwitchBranches",
+          "complexity": 16,
+          "lines": 51,
+          "start_line": 58,
+          "end_line": 108
+        },
+        {
+          "name": "codeWithStringBraces",
+          "complexity": 7,
+          "lines": 26,
+          "start_line": 111,
+          "end_line": 136
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 19,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "evaluateMultiLineTernary",
+          "start_line": 6,
+          "end_line": 55,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        },
+        {
+          "metric": "complexity",
+          "value": 16,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "withSwitchBranches",
+          "start_line": 58,
+          "end_line": 108,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        },
+        {
+          "metric": "function_lines",
+          "value": 51,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "withSwitchBranches",
+          "start_line": 58,
+          "end_line": 108,
+          "is_over": true,
+          "rule_source": "default",
+          "rule_pattern": "",
+          "rule_description": ""
+        }
+      ]
+    },
+    {
       "path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
       "language": "java",
       "total_lines": 133,
@@ -557,6 +570,67 @@
           "rule_source": "default",
           "rule_pattern": "",
           "rule_description": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\core\\CoreValidator.java",
+      "language": "java",
+      "total_lines": 41,
+      "total_penalty": 20,
+      "has_violations": true,
+      "rule_source": "override",
+      "rule_pattern": "test_src/core/*.java",
+      "rule_description": "核心 Java 最严格",
+      "function_details": [
+        {
+          "name": "CoreValidator.validate",
+          "complexity": 3,
+          "lines": 9,
+          "start_line": 9,
+          "end_line": 17
+        },
+        {
+          "name": "CoreValidator.countValid",
+          "complexity": 5,
+          "lines": 13,
+          "start_line": 19,
+          "end_line": 31
+        },
+        {
+          "name": "CoreValidator.classify",
+          "complexity": 6,
+          "lines": 8,
+          "start_line": 33,
+          "end_line": 40
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 5,
+          "threshold": 3,
+          "penalty": 10,
+          "function_name": "CoreValidator.countValid",
+          "start_line": 19,
+          "end_line": 31,
+          "is_over": true,
+          "rule_source": "override",
+          "rule_pattern": "test_src/core/*.java",
+          "rule_description": "核心 Java 最严格"
+        },
+        {
+          "metric": "complexity",
+          "value": 6,
+          "threshold": 3,
+          "penalty": 10,
+          "function_name": "CoreValidator.classify",
+          "start_line": 33,
+          "end_line": 40,
+          "is_over": true,
+          "rule_source": "override",
+          "rule_pattern": "test_src/core/*.java",
+          "rule_description": "核心 Java 最严格"
         }
       ]
     },
@@ -689,80 +763,6 @@
           "function_name": "PackageLevelUtils.calculateRiskScore",
           "start_line": 107,
           "end_line": 147,
-          "is_over": true,
-          "rule_source": "default",
-          "rule_pattern": "",
-          "rule_description": ""
-        }
-      ]
-    },
-    {
-      "path": "D:\\work\\twpw\\h046\\test_src\\complex_ternary.js",
-      "language": "javascript",
-      "total_lines": 141,
-      "total_penalty": 13,
-      "has_violations": true,
-      "rule_source": "default",
-      "rule_pattern": "",
-      "rule_description": "",
-      "function_details": [
-        {
-          "name": "evaluateMultiLineTernary",
-          "complexity": 19,
-          "lines": 50,
-          "start_line": 6,
-          "end_line": 55
-        },
-        {
-          "name": "withSwitchBranches",
-          "complexity": 16,
-          "lines": 51,
-          "start_line": 58,
-          "end_line": 108
-        },
-        {
-          "name": "codeWithStringBraces",
-          "complexity": 7,
-          "lines": 26,
-          "start_line": 111,
-          "end_line": 136
-        }
-      ],
-      "deductions": [
-        {
-          "metric": "complexity",
-          "value": 19,
-          "threshold": 10,
-          "penalty": 5,
-          "function_name": "evaluateMultiLineTernary",
-          "start_line": 6,
-          "end_line": 55,
-          "is_over": true,
-          "rule_source": "default",
-          "rule_pattern": "",
-          "rule_description": ""
-        },
-        {
-          "metric": "complexity",
-          "value": 16,
-          "threshold": 10,
-          "penalty": 5,
-          "function_name": "withSwitchBranches",
-          "start_line": 58,
-          "end_line": 108,
-          "is_over": true,
-          "rule_source": "default",
-          "rule_pattern": "",
-          "rule_description": ""
-        },
-        {
-          "metric": "function_lines",
-          "value": 51,
-          "threshold": 50,
-          "penalty": 3,
-          "function_name": "withSwitchBranches",
-          "start_line": 58,
-          "end_line": 108,
           "is_over": true,
           "rule_source": "default",
           "rule_pattern": "",
