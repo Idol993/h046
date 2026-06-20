@@ -82,24 +82,24 @@
 <body>
     <div class="container">
         <h1>📊 技术债务分析报告</h1>
-        <p style="color: #7f8c8d; margin-bottom: 20px;">生成时间: 2026-06-20 14:01:49</p>
+        <p style="color: #7f8c8d; margin-bottom: 20px;">生成时间: 2026-06-20 14:14:45</p>
 
         <div class="summary-cards">
             <div class="card danger">
                 <div class="label">总扣分</div>
-                <div class="value">13</div>
+                <div class="value">26</div>
             </div>
             <div class="card warning">
                 <div class="label">扫描文件数</div>
-                <div class="value">2</div>
+                <div class="value">3</div>
             </div>
             <div class="card danger">
                 <div class="label">违规文件数</div>
-                <div class="value">1</div>
+                <div class="value">3</div>
             </div>
             <div class="card info">
                 <div class="label">代码总行数</div>
-                <div class="value">175</div>
+                <div class="value">420</div>
             </div>
             <div class="card danger">
                 <div class="label">阈值</div>
@@ -124,7 +124,7 @@
         </div>
         
 
-        <h2>📋 违规文件详情 (1 个文件)</h2>
+        <h2>📋 违规文件详情 (3 个文件)</h2>
         
             
             <div class="file-section">
@@ -209,6 +209,220 @@
                 </ul>
             </div>
             
+            <div class="file-section">
+                <div class="file-header">
+                    <div>
+                        <span class="badge badge-lang-java">java</span>
+                        <span class="file-path">D:\work\twpw\h046\test_src\OrderService.java</span>
+                    </div>
+                    <span class="file-penalty danger">-8 分</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 13px;">总行数: 133</p>
+
+                
+                <table class="func-table">
+                    <tr>
+                        <th>函数名</th>
+                        <th>圈复杂度</th>
+                        <th>行数</th>
+                        <th>位置</th>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>OrderService.OrderService</code></td>
+                        <td class="">1</td>
+                        <td class="">5</td>
+                        <td>L17-L21</td>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>OrderService.processOrder</code></td>
+                        <td class="danger">29</td>
+                        <td class="danger">63</td>
+                        <td>L24-L86</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>OrderService.findOrdersByStatus</code></td>
+                        <td class="">6</td>
+                        <td class="">22</td>
+                        <td>L89-L110</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>OrderService.classifyCustomer</code></td>
+                        <td class="">9</td>
+                        <td class="">10</td>
+                        <td>L113-L122</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>OrderService.mapRow</code></td>
+                        <td class="">1</td>
+                        <td class="">3</td>
+                        <td>L125-L127</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>OrderService.createDefault</code></td>
+                        <td class="">1</td>
+                        <td class="">3</td>
+                        <td>L130-L132</td>
+                    </tr>
+                    
+                </table>
+                
+
+                <ul class="deductions-list">
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>OrderService.processOrder</strong>:
+                        
+                        29 > 10
+                        <span class="danger">(-5分)</span>
+                    </li>
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-function_lines">function_lines</span>
+                        
+                            <strong>OrderService.processOrder</strong>:
+                        
+                        63 > 50
+                        <span class="danger">(-3分)</span>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <div>
+                        <span class="badge badge-lang-javascript">javascript</span>
+                        <span class="file-path">D:\work\twpw\h046\test_src\app.js</span>
+                    </div>
+                    <span class="file-penalty danger">-5 分</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 13px;">总行数: 169</p>
+
+                
+                <table class="func-table">
+                    <tr>
+                        <th>函数名</th>
+                        <th>圈复杂度</th>
+                        <th>行数</th>
+                        <th>位置</th>
+                    </tr>
+                    
+                    <tr class="danger-row">
+                        <td><code>processUserData</code></td>
+                        <td class="danger">25</td>
+                        <td class="">43</td>
+                        <td>L10-L52</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>simpleAdd</code></td>
+                        <td class="">1</td>
+                        <td class="">3</td>
+                        <td>L55-L57</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>exportedHelper</code></td>
+                        <td class="">6</td>
+                        <td class="">10</td>
+                        <td>L60-L69</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>mainEntry</code></td>
+                        <td class="">2</td>
+                        <td class="">6</td>
+                        <td>L72-L77</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>arrowSum</code></td>
+                        <td class="">1</td>
+                        <td class="">1</td>
+                        <td>L80-L80</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>arrowComplex</code></td>
+                        <td class="">6</td>
+                        <td class="">13</td>
+                        <td>L83-L95</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>asyncFetchData</code></td>
+                        <td class="">4</td>
+                        <td class="">15</td>
+                        <td>L98-L112</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>validate</code></td>
+                        <td class="">4</td>
+                        <td class="">6</td>
+                        <td>L116-L121</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>transform</code></td>
+                        <td class="">4</td>
+                        <td class="">9</td>
+                        <td>L123-L131</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>constructor</code></td>
+                        <td class="">1</td>
+                        <td class="">4</td>
+                        <td>L136-L139</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>getUser</code></td>
+                        <td class="">4</td>
+                        <td class="">9</td>
+                        <td>L141-L149</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>fetchUser</code></td>
+                        <td class="">5</td>
+                        <td class="">14</td>
+                        <td>L151-L164</td>
+                    </tr>
+                    
+                    <tr class="">
+                        <td><code>createDefault</code></td>
+                        <td class="">1</td>
+                        <td class="">3</td>
+                        <td>L166-L168</td>
+                    </tr>
+                    
+                </table>
+                
+
+                <ul class="deductions-list">
+                    
+                    <li class="deduction-item">
+                        <span class="tag tag-complexity">complexity</span>
+                        
+                            <strong>processUserData</strong>:
+                        
+                        25 > 10
+                        <span class="danger">(-5分)</span>
+                    </li>
+                    
+                </ul>
+            </div>
+            
         
 
         <h2>📁 所有扫描文件</h2>
@@ -227,11 +441,18 @@
                 <td class="danger">13</td>
             </tr>
             
-            <tr class="">
+            <tr class="danger-row">
+                <td><code>D:\work\twpw\h046\test_src\OrderService.java</code></td>
+                <td><span class="badge badge-lang-java">java</span></td>
+                <td>133</td>
+                <td class="danger">8</td>
+            </tr>
+            
+            <tr class="danger-row">
                 <td><code>D:\work\twpw\h046\test_src\app.js</code></td>
                 <td><span class="badge badge-lang-javascript">javascript</span></td>
-                <td>57</td>
-                <td class="">0</td>
+                <td>169</td>
+                <td class="danger">5</td>
             </tr>
             
         </table>
@@ -243,9 +464,9 @@
         new Chart(ctx1, {
             type: 'doughnut',
             data: {
-                labels: ["javascript", "python"],
+                labels: ["python", "javascript", "java"],
                 datasets: [{
-                    data: [1, 1],
+                    data: [1, 1, 1],
                     backgroundColor: ['#3498db', '#f39c12', '#e74c3c', '#27ae60', '#9b59b6', '#1abc9c']
                 }]
             },
@@ -256,10 +477,10 @@
         new Chart(ctx2, {
             type: 'bar',
             data: {
-                labels: ["complex_module.py", "app.js"],
+                labels: ["complex_module.py", "OrderService.java", "app.js"],
                 datasets: [{
                     label: '扣分数',
-                    data: [13, 0],
+                    data: [13, 8, 5],
                     backgroundColor: '#e74c3c'
                 }]
             },
@@ -276,7 +497,7 @@
             data: {
                 labels: ["圈复杂度", "函数行数", "文件耦合度"],
                 datasets: [{
-                    data: [2, 1, 0],
+                    data: [4, 2, 0],
                     backgroundColor: ['#e74c3c', '#f39c12', '#9b59b6']
                 }]
             },

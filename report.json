@@ -1,62 +1,190 @@
 {
-  "generated_at": "2026-06-20T14:02:00.495155",
+  "generated_at": "2026-06-20T14:15:00.179210",
   "threshold": 100,
-  "total_penalty": 13,
-  "total_files": 2,
-  "violation_files": 1,
-  "total_lines": 175,
+  "total_penalty": 26,
+  "total_files": 3,
+  "violation_files": 3,
+  "total_lines": 420,
+  "top_functions": [
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\app.js",
+      "language": "javascript",
+      "function_name": "processUserData",
+      "metric": "complexity",
+      "value": 25,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 10,
+      "end_line": 52
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
+      "language": "python",
+      "function_name": "very_complex_function",
+      "metric": "complexity",
+      "value": 32,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 23,
+      "end_line": 82
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
+      "language": "python",
+      "function_name": "another_complex_func",
+      "metric": "complexity",
+      "value": 14,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 85,
+      "end_line": 108
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
+      "language": "java",
+      "function_name": "OrderService.processOrder",
+      "metric": "complexity",
+      "value": 29,
+      "threshold": 10,
+      "penalty": 5,
+      "start_line": 24,
+      "end_line": 86
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
+      "language": "python",
+      "function_name": "very_complex_function",
+      "metric": "function_lines",
+      "value": 60,
+      "threshold": 50,
+      "penalty": 3,
+      "start_line": 23,
+      "end_line": 82
+    },
+    {
+      "file_path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
+      "language": "java",
+      "function_name": "OrderService.processOrder",
+      "metric": "function_lines",
+      "value": 63,
+      "threshold": 50,
+      "penalty": 3,
+      "start_line": 24,
+      "end_line": 86
+    }
+  ],
   "files": [
     {
       "path": "D:\\work\\twpw\\h046\\test_src\\app.js",
       "language": "javascript",
-      "total_lines": 57,
-      "total_penalty": 0,
-      "has_violations": false,
+      "total_lines": 169,
+      "total_penalty": 5,
+      "has_violations": true,
       "function_details": [
         {
-          "name": "anonymous",
-          "complexity": 1,
-          "lines": 1,
-          "start_line": 1,
-          "end_line": 1
-        },
-        {
-          "name": "anonymous",
-          "complexity": 1,
-          "lines": 4,
-          "start_line": 2,
-          "end_line": 5
-        },
-        {
-          "name": "anonymous",
-          "complexity": 1,
-          "lines": 1,
-          "start_line": 6,
-          "end_line": 6
-        },
-        {
-          "name": "anonymous",
-          "complexity": 1,
-          "lines": 1,
-          "start_line": 7,
-          "end_line": 7
-        },
-        {
-          "name": "anonymous",
-          "complexity": 2,
-          "lines": 45,
-          "start_line": 8,
+          "name": "processUserData",
+          "complexity": 25,
+          "lines": 43,
+          "start_line": 10,
           "end_line": 52
         },
         {
-          "name": "anonymous",
+          "name": "simpleAdd",
           "complexity": 1,
-          "lines": 5,
-          "start_line": 53,
+          "lines": 3,
+          "start_line": 55,
           "end_line": 57
+        },
+        {
+          "name": "exportedHelper",
+          "complexity": 6,
+          "lines": 10,
+          "start_line": 60,
+          "end_line": 69
+        },
+        {
+          "name": "mainEntry",
+          "complexity": 2,
+          "lines": 6,
+          "start_line": 72,
+          "end_line": 77
+        },
+        {
+          "name": "arrowSum",
+          "complexity": 1,
+          "lines": 1,
+          "start_line": 80,
+          "end_line": 80
+        },
+        {
+          "name": "arrowComplex",
+          "complexity": 6,
+          "lines": 13,
+          "start_line": 83,
+          "end_line": 95
+        },
+        {
+          "name": "asyncFetchData",
+          "complexity": 4,
+          "lines": 15,
+          "start_line": 98,
+          "end_line": 112
+        },
+        {
+          "name": "validate",
+          "complexity": 4,
+          "lines": 6,
+          "start_line": 116,
+          "end_line": 121
+        },
+        {
+          "name": "transform",
+          "complexity": 4,
+          "lines": 9,
+          "start_line": 123,
+          "end_line": 131
+        },
+        {
+          "name": "constructor",
+          "complexity": 1,
+          "lines": 4,
+          "start_line": 136,
+          "end_line": 139
+        },
+        {
+          "name": "getUser",
+          "complexity": 4,
+          "lines": 9,
+          "start_line": 141,
+          "end_line": 149
+        },
+        {
+          "name": "fetchUser",
+          "complexity": 5,
+          "lines": 14,
+          "start_line": 151,
+          "end_line": 164
+        },
+        {
+          "name": "createDefault",
+          "complexity": 1,
+          "lines": 3,
+          "start_line": 166,
+          "end_line": 168
         }
       ],
-      "deductions": []
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 25,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "processUserData",
+          "start_line": 10,
+          "end_line": 52,
+          "is_over": true
+        }
+      ]
     },
     {
       "path": "D:\\work\\twpw\\h046\\test_src\\complex_module.py",
@@ -101,6 +229,8 @@
           "threshold": 10,
           "penalty": 5,
           "function_name": "very_complex_function",
+          "start_line": 23,
+          "end_line": 82,
           "is_over": true
         },
         {
@@ -109,6 +239,8 @@
           "threshold": 50,
           "penalty": 3,
           "function_name": "very_complex_function",
+          "start_line": 23,
+          "end_line": 82,
           "is_over": true
         },
         {
@@ -117,6 +249,81 @@
           "threshold": 10,
           "penalty": 5,
           "function_name": "another_complex_func",
+          "start_line": 85,
+          "end_line": 108,
+          "is_over": true
+        }
+      ]
+    },
+    {
+      "path": "D:\\work\\twpw\\h046\\test_src\\OrderService.java",
+      "language": "java",
+      "total_lines": 133,
+      "total_penalty": 8,
+      "has_violations": true,
+      "function_details": [
+        {
+          "name": "OrderService.OrderService",
+          "complexity": 1,
+          "lines": 5,
+          "start_line": 17,
+          "end_line": 21
+        },
+        {
+          "name": "OrderService.processOrder",
+          "complexity": 29,
+          "lines": 63,
+          "start_line": 24,
+          "end_line": 86
+        },
+        {
+          "name": "OrderService.findOrdersByStatus",
+          "complexity": 6,
+          "lines": 22,
+          "start_line": 89,
+          "end_line": 110
+        },
+        {
+          "name": "OrderService.classifyCustomer",
+          "complexity": 9,
+          "lines": 10,
+          "start_line": 113,
+          "end_line": 122
+        },
+        {
+          "name": "OrderService.mapRow",
+          "complexity": 1,
+          "lines": 3,
+          "start_line": 125,
+          "end_line": 127
+        },
+        {
+          "name": "OrderService.createDefault",
+          "complexity": 1,
+          "lines": 3,
+          "start_line": 130,
+          "end_line": 132
+        }
+      ],
+      "deductions": [
+        {
+          "metric": "complexity",
+          "value": 29,
+          "threshold": 10,
+          "penalty": 5,
+          "function_name": "OrderService.processOrder",
+          "start_line": 24,
+          "end_line": 86,
+          "is_over": true
+        },
+        {
+          "metric": "function_lines",
+          "value": 63,
+          "threshold": 50,
+          "penalty": 3,
+          "function_name": "OrderService.processOrder",
+          "start_line": 24,
+          "end_line": 86,
           "is_over": true
         }
       ]

@@ -35,6 +35,8 @@ class Reporter:
                     "threshold": d.threshold,
                     "penalty": d.penalty,
                     "function_name": d.function_name,
+                    "start_line": d.start_line,
+                    "end_line": d.end_line,
                     "is_over": d.is_over,
                 }
                 for d in file_score.deductions
@@ -49,6 +51,7 @@ class Reporter:
             "total_files": len(project_score.files),
             "violation_files": len(project_score.files_with_violations),
             "total_lines": project_score.total_lines,
+            "top_functions": project_score.top_functions[:20],
             "files": [self._file_to_dict(f) for f in project_score.files],
         }
         with open(output_path, "w", encoding="utf-8") as f:

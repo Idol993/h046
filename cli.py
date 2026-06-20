@@ -164,22 +164,38 @@ def scan(
     project_score: ProjectScore = scorer.score(metrics_list)
 
     click.echo("")
-    click.echo("=" * 50)
+    click.echo("=" * 60)
     click.echo(f"📊 总扣分: {project_score.total_penalty}")
     click.echo(f"📁 扫描文件: {len(project_score.files)}")
     click.echo(f"🚨 违规文件: {len(project_score.files_with_violations)}")
-    click.echo(f"📏 阈值: {threshold}")
-    click.echo("=" * 50)
+    click.echo(f"📏 代码总行数: {project_score.total_lines}")
+    click.echo(f"🎯 阈值: {threshold}")
+    click.echo("=" * 60)
 
     if project_score.files_with_violations:
         click.echo("")
-        click.echo("🚨 违规文件 Top 10:")
+        click.echo("🚨 Top 违规文件 (按扣分排序):")
         top_violations = sorted(
             project_score.files_with_violations,
             key=lambda x: -x.total_penalty,
         )[:10]
         for i, fs in enumerate(top_violations, 1):
-            click.echo(f"  {i:2d}. [{fs.language}] {fs.path}  (-{fs.total_penalty}分)")
+            click.echo(
+                f"  {i:2d}. [{fs.language}] {fs.path}  "
+                f"(-{fs.total_penalty}分, {fs.total_lines}行)"
+            )
+
+    top_funcs = project_score.top_functions[:10]
+    if top_funcs:
+        click.echo("")
+        click.echo("🔥 Top 违规函数 (按扣分排序):")
+        for i, tf in enumerate(top_funcs, 1):
+            loc = f"L{tf['start_line']}" if tf.get("start_line") else ""
+            click.echo(
+                f"  {i:2d}. [{tf['language']}] {tf['function_name']}  "
+                f"({tf['metric']}={tf['value']}>{tf['threshold']}, "
+                f"-{tf['penalty']}分)  {tf['file_path']}:{loc}"
+            )
 
     reporter = Reporter(config)
     try:

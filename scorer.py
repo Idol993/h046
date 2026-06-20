@@ -12,6 +12,8 @@ class DeductionItem:
     threshold: int
     penalty: int
     function_name: str = ""
+    start_line: int = 0
+    end_line: int = 0
 
     @property
     def is_over(self) -> bool:
@@ -58,6 +60,26 @@ class ProjectScore:
             result.setdefault(f.language, []).append(f)
         return result
 
+    @property
+    def top_functions(self) -> List[Dict[str, Any]]:
+        func_deductions: List[Dict[str, Any]] = []
+        for f in self.files:
+            for d in f.deductions:
+                if d.is_over and d.function_name:
+                    func_deductions.append({
+                        "file_path": f.path,
+                        "language": f.language,
+                        "function_name": d.function_name,
+                        "metric": d.metric,
+                        "value": d.value,
+                        "threshold": d.threshold,
+                        "penalty": d.penalty,
+                        "start_line": d.start_line,
+                        "end_line": d.end_line,
+                    })
+        func_deductions.sort(key=lambda x: -x["penalty"])
+        return func_deductions
+
 
 class Scorer:
     def __init__(self, config: Config):
@@ -77,6 +99,8 @@ class Scorer:
                 threshold=complexity_threshold,
                 penalty=complexity_penalty,
                 function_name=func.name,
+                start_line=func.start_line,
+                end_line=func.end_line,
             ))
 
         lines_threshold = self.config.get_threshold(language, "function_lines")
@@ -88,6 +112,8 @@ class Scorer:
                 threshold=lines_threshold,
                 penalty=lines_penalty,
                 function_name=func.name,
+                start_line=func.start_line,
+                end_line=func.end_line,
             ))
 
         return deductions

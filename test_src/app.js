@@ -55,3 +55,115 @@ function processUserData(users, filter, options) {
 function simpleAdd(a, b) {
     return a + b;
 }
+
+
+export function exportedHelper(data) {
+    if (data && data.length > 0) {
+        for (let item of data) {
+            if (item.active && item.verified) {
+                processItem(item);
+            }
+        }
+    }
+    return data;
+}
+
+
+export default function mainEntry(config) {
+    if (config.debug) {
+        console.log('debug mode');
+    }
+    return config;
+}
+
+
+const arrowSum = (a, b) => a + b;
+
+
+const arrowComplex = (items) => {
+    let result = 0;
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].valid) {
+            if (items[i].score > 50) {
+                result += items[i].score;
+            } else if (items[i].score > 20) {
+                result += items[i].score / 2;
+            }
+        }
+    }
+    return result;
+};
+
+
+const asyncFetchData = async (url) => {
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+            const data = await response.json();
+            if (data.success) {
+                return data.result;
+            } else {
+                throw new Error('API error');
+            }
+        }
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+
+const objMethods = {
+    validate: function(input) {
+        if (!input) return false;
+        if (input.length > 100) return false;
+        if (input.length < 3) return false;
+        return true;
+    },
+
+    transform: function(data) {
+        let result = [];
+        for (let key in data) {
+            if (data.hasOwnProperty(key) && data[key] !== null) {
+                result.push({ key: key, value: data[key] });
+            }
+        }
+        return result;
+    }
+};
+
+
+class UserService {
+    constructor(apiUrl) {
+        this.apiUrl = apiUrl;
+        this.cache = {};
+    }
+
+    getUser(id) {
+        if (this.cache[id]) {
+            return this.cache[id];
+        }
+        if (id > 0 && id < 10000) {
+            return this.fetchUser(id);
+        }
+        return null;
+    }
+
+    async fetchUser(id) {
+        try {
+            const resp = await fetch(this.apiUrl + '/users/' + id);
+            if (resp.ok) {
+                const user = await resp.json();
+                if (user && user.active) {
+                    this.cache[id] = user;
+                    return user;
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    static createDefault() {
+        return new UserService('https://api.example.com');
+    }
+}
